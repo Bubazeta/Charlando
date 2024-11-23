@@ -1,0 +1,25 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+  
+      // Rules Perfiles de usuario
+    match /profileUsers/{docUserId} {
+    allow read: if true;
+      allow create, update: if
+      request.auth != null &&
+        request.auth.uid == docUserId; 
+    }
+    
+  // -->Rules para las Publicaciones <--
+    	match /posts/{postId} {
+        allow read: if true;
+        allow create, update: if request.auth != null && request.auth.uid == request.resource.data.authorUID
+      		match /comments/{commentId} {
+            allow read: if true;
+            allow create: if request.auth != null && request.auth.uid == request.resource.data.authorUID
+      	}
+        
+    	}
+  }
+}

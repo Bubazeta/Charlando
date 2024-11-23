@@ -1,0 +1,12 @@
+carrera : Diseño Web
+materia: Clientes Web Mobile
+Cuatrimestre: 4to
+año: 2024
+turno: mañana
+comision:  DWM4AP 
+apllido: Tapia
+nombre: Hector Daniel
+docente: GALLINO Santiago
+carácter de entrega (2do parcial).
+
+observacion - tengo problemas de CORS en el servicio de storage intente arreglarlo con un cors.json no funciono intente varias cosas pero sin reusltado el codigo esta comentado en la linia 31 de la vista : editProfileUserView , igual le adjunte las reglas , espero una respuesta.
