@@ -121,7 +121,7 @@ onBeforeUnmount(() => {
 		<div class="w-full flex gap-2 items-center">
 			<div class="flex-1 flex flex-col">
 				<label for="file" class="text-lg font-medium text-black mb-1">Subir foto</label>
-				<input @change="handleChangeFile" type="file" id="file" class="border border-gray-300 rounded-lg p-2 focus:outline-none focus:border-pastel-blue-400 transition duration-200">
+				<input @change="handleChangeFile" type="file" id="file" class="border border-gray-300 w-full rounded-lg p-2 focus:outline-none focus:border-pastel-blue-400 transition duration-200">
 			</div>
 			<figure v-if="tempPreviewImage">
 				<img :src="tempPreviewImage" alt="Imagen para compartir una publicación">
@@ -138,15 +138,15 @@ onBeforeUnmount(() => {
 		<li v-for="post in postsList" :key="post.id"
 			class="bg-pastel-blue-200 p-4 rounded-lg shadow-md flex flex-col gap-3">
 			<!-- DATOS DEL USUARIO QUIEN PUBLICA -->
-			<div class="flex items-center bg-pastel-blue-300 rounded-lg shadow-inner gap-4 w-full pt-2 pl-2 ">
+			<div class="flex items-center bg-pastel-blue-300 rounded-lg shadow-inner gap-4 w-full pt-2 pl-2 h-50 ">
 				<figure class="w-[80px] h-[80px] max-w-full max-h-full min-w-20 rounded-full overflow-hidden border-2 border-pastel-blue-400 shadow-sm">
 					<img :src="post.authorProfile?.profilePhoto || 'https://placehold.co/200x200'" :alt="post.authorProfile.name" class=" object-cover w-full h-full">
 				</figure>
 				<div class="flex flex-row  w-full gap-2">
-					<RouterLink :to="{ name: 'perfil', params: { id: post.authorProfile.uid } }" class="text-purple-700 no-underline hover:text-purple-800 transition-colors font-semibold w-[300px] max-w-full">
-						<h2>De: {{ post.authorProfile.name }}</h2>
+					<RouterLink :to="{ name: 'perfil', params: { id: post.authorProfile.uid } }" class="text-purple-700 no-underline hover:text-purple-800 transition-colors font-semibold md:w-[300px] max-w-full">
+						<h2 class="text-base">De: {{ post.authorProfile.name }}</h2>
 					</RouterLink>
-					<p class="text-sm text-gray-500 text-end pr-2 w-[300px] max-w-full">Creado el:
+					<p class="text-sm text-gray-500 text-end pr-2 md:w-[300px] max-w-full">Creado el:
 						{{ formatDate(new Date(post?.createdAt?.seconds) * 1000) }}
 					</p>
 				</div>
